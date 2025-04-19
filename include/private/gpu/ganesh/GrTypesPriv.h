@@ -16,6 +16,7 @@
 #include "include/core/SkRefCnt.h"
 #include "include/gpu/GrTypes.h"
 #include "include/private/base/SkAssert.h"
+#include "include/private/base/SkDebug.h"
 #include "include/private/base/SkMacros.h"
 #include "include/private/base/SkTypeTraits.h"
 
@@ -941,7 +942,7 @@ GR_MAKE_BITFIELD_CLASS_OPS(GrDstSampleFlags)
 
 using GrVisitProxyFunc = std::function<void(GrSurfaceProxy*, skgpu::Mipmapped)>;
 
-#if defined(SK_DEBUG) || defined(GR_TEST_UTILS) || defined(SK_ENABLE_DUMP_GPU)
+#if defined(SK_DEBUG) || defined(GPU_TEST_UTILS) || defined(SK_ENABLE_DUMP_GPU)
 static constexpr const char* GrBackendApiToStr(GrBackendApi api) {
     switch (api) {
         case GrBackendApi::kOpenGL:      return "OpenGL";

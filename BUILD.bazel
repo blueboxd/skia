@@ -18,7 +18,6 @@ license(
 
 licenses(["notice"])
 
-# Note, we do not need exports_files_legacy() because this file is not synced into G3.
 exports_files(["LICENSE"])
 
 # All the mm files from the Skia library are rolled up to this objc library since cc_library
@@ -164,6 +163,20 @@ alias(
 ###
 
 alias(
+    name = "graphite_native_metal",
+    actual = "//src/gpu/graphite/mtl:graphite_native_metal",
+    visibility = ["//visibility:public"],
+)
+
+alias(
+    name = "graphite_native_vulkan",
+    actual = "//src/gpu/graphite/vk:graphite_native_vulkan",
+    visibility = ["//visibility:public"],
+)
+
+###
+
+alias(
     name = "bmp_decode_codec",
     actual = "//src/codec:bmp_decode",
     visibility = ["//visibility:public"],
@@ -264,6 +277,12 @@ alias(
 alias(
     name = "fontmgr_android_freetype",
     actual = "//src/ports:fontmgr_android_freetype",
+    visibility = ["//visibility:public"],
+)
+
+alias(
+    name = "fontmgr_empty_fontations",
+    actual = "//src/ports:fontmgr_fontations_empty",
     visibility = ["//visibility:public"],
 )
 

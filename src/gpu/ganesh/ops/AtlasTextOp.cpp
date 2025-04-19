@@ -161,7 +161,7 @@ void AtlasTextOp::visitProxies(const GrVisitProxyFunc& func) const {
     fProcessors.visitProxies(func);
 }
 
-#if defined(GR_TEST_UTILS)
+#if defined(GPU_TEST_UTILS)
 SkString AtlasTextOp::onDumpInfo() const {
     SkString str;
     int i = 0;
@@ -206,7 +206,6 @@ GrProcessorSet::Analysis AtlasTextOp::finalize(const GrCaps& caps,
         case MaskType::kLCDCoverage:
 #if !defined(SK_DISABLE_SDF_TEXT)
         case MaskType::kLCDDistanceField:
-        case MaskType::kLCDBGRDistanceField:
 #endif
             coverage = GrProcessorAnalysisCoverage::kLCD;
             break;
